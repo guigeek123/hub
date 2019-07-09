@@ -8,6 +8,11 @@ version: '2.3'
 # Docker Compose will be supported until December 31, 2019.
 
 services:
+  squid:
+    image: guigeek123/mysquid:1.0
+    environment:
+      - SQUID_USERNAME=foo
+      - SQUID_PASSWORD=bar
   postgres:
     image: blackducksoftware/blackduck-postgres:1.0.7
     ports: ['55436:5432']
