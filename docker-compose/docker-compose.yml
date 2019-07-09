@@ -9,7 +9,7 @@ version: '2.3'
 
 services:
   simpleproxy:
-    image: benappsec/simple_proxy:0.1
+    image: benappsec/simple_proxy:0.2
     environment:
       - http_proxy=http://foo:bar@squid:3128
       - https_proxy=http://foo:bar@squid:3128
@@ -27,7 +27,7 @@ services:
     image: busybox
     networks:
       - no-internet
-
+    entrypoint: tail -f /dev/null
 
 networks:
   no-internet:
