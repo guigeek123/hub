@@ -8,13 +8,6 @@ version: '2.3'
 # Docker Compose will be supported until December 31, 2019.
 
 services:
-  simpleproxy:
-    image: benappsec/simple_proxy:0.2
-    environment:
-      - http_proxy=http://foo:bar@squid:3128
-      - https_proxy=http://foo:bar@squid:3128
-    networks:
-      - no-internet
   squid:
     image: guigeek123/mysquid:1.0
     environment:
@@ -23,11 +16,11 @@ services:
     networks:
       - no-internet
       - internet
-  busybox:
-    image: busybox
-    networks:
-      - no-internet
-    entrypoint: tail -f /dev/null
+#  busybox:
+#    image: busybox
+#    networks:
+#      - no-internet
+#    entrypoint: tail -f /dev/null
   postgres:
     image: blackducksoftware/blackduck-postgres:1.0.7
     ports: ['55436:5432']
